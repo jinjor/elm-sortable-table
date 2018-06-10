@@ -1,5 +1,6 @@
 module Main exposing (..)
 
+import Browser
 import Html exposing (Attribute, Html, div, h1, input, p, text)
 import Html.Attributes exposing (checked, style, type_)
 import Html.Events exposing (onClick)
@@ -8,9 +9,10 @@ import Table exposing (defaultCustomizations)
 import Time exposing (Time)
 
 
+main : Program () Model Msg
 main =
-    Html.program
-        { init = init missionSights
+    Browser.embed
+        { init = \_ -> init missionSights
         , update = update
         , view = view
         , subscriptions = \_ -> Sub.none

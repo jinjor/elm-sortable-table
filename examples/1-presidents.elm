@@ -1,14 +1,16 @@
 module Main exposing (..)
 
+import Browser
 import Html exposing (Html, div, h1, input, text)
 import Html.Attributes exposing (placeholder)
 import Html.Events exposing (onInput)
 import Table
 
 
+main : Program () Model Msg
 main =
-    Html.program
-        { init = init presidents
+    Browser.embed
+        { init = \_ -> init presidents
         , update = update
         , view = view
         , subscriptions = \_ -> Sub.none
