@@ -241,7 +241,7 @@ simpleThead headers =
 
 
 simpleTheadHelp : ( String, Status, Attribute msg ) -> Html msg
-simpleTheadHelp ( name, status, onClick ) =
+simpleTheadHelp ( name, status, onClick_ ) =
     let
         content =
             case status of
@@ -273,7 +273,7 @@ simpleTheadHelp ( name, status, onClick ) =
                         )
                     ]
     in
-    Html.th [ onClick ] content
+    Html.th [ onClick_ ] content
 
 
 darkGrey : String -> Html msg
@@ -560,25 +560,25 @@ applySorter isReversed sorter data =
         None ->
             data
 
-        Increasing sort ->
-            sort data
+        Increasing sort_ ->
+            sort_ data
 
-        Decreasing sort ->
-            List.reverse (sort data)
+        Decreasing sort_ ->
+            List.reverse (sort_ data)
 
-        IncOrDec sort ->
+        IncOrDec sort_ ->
             if isReversed then
-                List.reverse (sort data)
+                List.reverse (sort_ data)
 
             else
-                sort data
+                sort_ data
 
-        DecOrInc sort ->
+        DecOrInc sort_ ->
             if isReversed then
-                sort data
+                sort_ data
 
             else
-                List.reverse (sort data)
+                List.reverse (sort_ data)
 
 
 findSorter : String -> List (ColumnData data msg) -> Maybe (Sorter data)
