@@ -345,7 +345,7 @@ intColumn : String -> (data -> Int) -> Column data msg
 intColumn name toInt =
     Column
         { name = name
-        , viewData = textDetails << toString << toInt
+        , viewData = textDetails << String.fromInt << toInt
         , sorter = increasingOrDecreasingBy toInt
         }
 
@@ -355,7 +355,7 @@ floatColumn : String -> (data -> Float) -> Column data msg
 floatColumn name toFloat =
     Column
         { name = name
-        , viewData = textDetails << toString << toFloat
+        , viewData = textDetails << String.fromFloat << toFloat
         , sorter = increasingOrDecreasingBy toFloat
         }
 
@@ -381,7 +381,7 @@ quite cut it. You could define a custom column like this:
 
     viewDollars : Float -> String
     viewDollars dollars =
-        "$" ++ toString (round (dollars / 1000)) ++ "k"
+        "$" ++ String.fromInt (round (dollars / 1000)) ++ "k"
 
 The `viewData` field means we will displays the number `12345.67` as `$12k`.
 
@@ -423,7 +423,7 @@ So maybe you want to a dollars column, and the dollar signs should be green.
     viewDollars dollars =
         Table.HtmlDetails []
             [ span [ style "color" "green" ] [ text "$" ]
-            , text (toString (round (dollars / 1000)) ++ "k")
+            , text (String.fromInt (round (dollars / 1000)) ++ "k")
             ]
 
 -}
