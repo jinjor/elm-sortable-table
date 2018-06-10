@@ -153,7 +153,7 @@ You provide the following information in your table configuration:
 
 See the [examples] to get a better feel for this!
 
-[keyed]: http://package.elm-lang.org/packages/elm-lang/html/latest/Html-Keyed
+[keyed]: https://package.elm-lang.org/packages/elm/html/latest/Html-Keyed
 [examples]: https://github.com/evancz/elm-sortable-table/tree/master/examples
 
 -}
